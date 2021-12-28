@@ -41,9 +41,13 @@ form.addEventListener('submit', function onSubmit(event) {
 })
 
 $chatInput.addEventListener('input', function onInput() {
-  this.style.height = 'auto'
-  this.style.height = this.scrollHeight + 'px'
+  resizeChatInput()
 })
+
+function resizeChatInput() {
+  $chatInput.style.height = 'auto'
+  $chatInput.style.height = this.scrollHeight + 'px'
+}
 
 $chatInput.addEventListener('keydown', function onKeyDown(event) {
   if (event.ctrlKey && event.key === 'Enter') {
