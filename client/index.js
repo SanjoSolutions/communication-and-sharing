@@ -12,7 +12,7 @@ function scrollDown() {
   $chatMessages.scrollTop = determineBottomScrollPosition()
 }
 
-const socket = new WebSocket('ws://192.168.178.22:8081')
+const socket = new WebSocket('ws://localhost:8081')
 
 socket.addEventListener('message', async function onMessage(event) {
   const $message = document.createElement('div')
