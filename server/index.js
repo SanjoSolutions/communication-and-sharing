@@ -1,7 +1,8 @@
 import { WebSocketServer } from 'ws'
 import fs from 'fs/promises'
 
-const log = await fs.open('log.txt', 'a')
+const logFile = await fs.open('log.txt', 'a+')
+let log = await logFile.readFile({encoding: 'utf-8'})
 
 const server = new WebSocketServer({
   port: 8081,
@@ -9,9 +10,12 @@ const server = new WebSocketServer({
 })
 
 server.on('connection', function onConnection(socket) {
+  socket.send(log)
+
   socket.on('message', function onMessage(data) {
     const message = data.toString()
-    log.appendFile(message + '\n')
+    log += message + '\n'
+    logFile.appendFile(message + '\n')
     server.clients.forEach(client => client.send(message))
   })
 })
