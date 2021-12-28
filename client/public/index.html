@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Communication & Sharing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        min-height: 100vh;
+        padding: 0.5rem;
+      }
+
+      .chat {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+      }
+
+      .chat__header {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      .chat__messages {
+        min-height: 5rem;
+        border: 1px solid black;
+        margin-bottom: 0.5rem;
+        padding: 0.25rem;
+        flex: 1 1 auto;
+        white-space: pre-line;
+      }
+
+      .chat__message-writing {
+        display: flex;
+      }
+
+      .chat__input {
+        display: block;
+        width: 100%;
+        margin-right: 0.5rem;
+        resize: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat">
+      <h2 class="chat__header">Chat</h2>
+      <div class="chat__messages"></div>
+      <form class="chat__message-writing">
+        <textarea class="chat__input" rows="1" autofocus></textarea>
+        <button class="chat__send">Send</button>
+      </form>
+      <script type="module" src="index.js"></script>
+    </div>
+  </body>
+</html>
